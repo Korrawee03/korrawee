@@ -1,0 +1,256 @@
+/* ================== BODY ================== */
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: clamp(5px, 2vw, 20px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #e6f7ff; /* ฟ้าพาสเทลอ่อน */
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ================== HAMBURGER ================== */
+.menu-btn {
+  position: fixed;
+  top: clamp(10px, 2vw, 20px);
+  left: clamp(10px, 2vw, 20px);
+  font-size: clamp(32px, 5vw, 44px);
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.menu-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: #0b2eca;
+}
+
+/* ================== DROPDOWN ================== */
+.dropdown-menu {
+  position: absolute;
+  top: calc(clamp(10px, 2vw, 20px) + 50px);
+  left: clamp(10px, 2vw, 20px);
+  background: #5aa7f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  z-index: 1500;
+  width: max-content;
+}
+
+.dropdown-menu.active { transform: scaleY(1); }
+
+.dropdown-menu a {
+  display: block;
+  padding: clamp(10px, 2vw, 16px) clamp(14px, 3vw, 24px);
+  color: #fff;
+  font-size: clamp(14px, 2.5vw, 18px);
+  transition: background 0.3s, transform 0.3s ease;
+  text-decoration: none;
+}
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+/* ================== CARD WRAPPER ================== */
+.card-wrapper {
+  position: relative;
+  width: clamp(280px, 85%, 600px);
+  margin: 0 auto;
+}
+
+/* ================== BLUE BOX ================== */
+.blue-box {
+  position: absolute;
+  background: #7ebce6;
+  z-index: 0;
+  transition: transform 0.8s ease;
+}
+
+.blue-box.top-left {
+  width: clamp(120px, 20%, 200px);
+  height: clamp(120px, 20%, 200px);
+  top: -20px; left: -20px;
+  animation: floatBox 6s ease-in-out infinite;
+}
+.blue-box.bottom-right {
+  width: clamp(120px, 20%, 200px);
+  height: clamp(120px, 20%, 200px);
+  bottom: -20px; right: -20px;
+  animation: floatBox 6s ease-in-out infinite reverse;
+}
+
+/* ================== CREAM BOX ================== */
+.cream-box {
+  position: relative;
+  background: #f9f8f5;
+  padding: clamp(14px, 4vw, 24px);
+  box-sizing: border-box;
+  z-index: 1;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Blue-box */
+.cream-box:hover ~ .blue-box.top-left {
+  transform: translate(-10px, -10px) rotate(-3deg);
+}
+.cream-box:hover ~ .blue-box.bottom-right {
+  transform: translate(10px, 10px) rotate(3deg);
+}
+
+/* ================== PROFILE HEADER ================== */
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 20px);
+  margin-bottom: clamp(12px, 3vw, 18px);
+  padding: clamp(10px, 3vw, 16px);
+  background: #f9f8f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-header:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: clamp(100px, 25vw, 160px);
+  height: clamp(100px, 25vw, 160px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #0096a3;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.profile-pic:hover { transform: scale(1.05); }
+
+/* Heading */
+.profile-header h2 {
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: bold;
+  color: #0096a3;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.profile-header:hover h2 {
+  color: #007a85;
+  text-shadow: 0 3px 8px rgba(0,150,163,0.4);
+}
+
+/* ================== PROFILE INFO ================== */
+.profile-info {
+  text-align: center;
+  background: #ffffffcc;
+  padding: clamp(14px, 5vw, 22px);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: clamp(14px, 4vw, 18px);
+  line-height: 1.6;
+}
+.profile-info:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.profile-info strong {
+  color: #0096a3;
+  font-weight: bold;
+}
+
+/* ================== ANIMATIONS ================== */
+@keyframes floatBox {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(5px,-5px); }
+  100% { transform: translate(0,0); }
+}
+
+/* ================== RESPONSIVE BREAKPOINTS ================== */
+
+/* ================== MOBILE VIEW (up to 480px) ================== */
+
+/* ================== MOBILE VIEW (up to 480px) ================== */
+@media (max-width: 480px) {
+
+  /* จัด hamburger ให้ตรงกับกรอบฟ้า */
+  .menu-btn { 
+    top: 10px; 
+    left: 10px; 
+    font-size: clamp(40px, 10vw, 50px); 
+  }
+
+  .dropdown-menu { 
+    top: 60px; 
+    left: 10px; 
+  }
+  
+  /* การ์ดเต็มจอแบบใหญ่ */
+  .card-wrapper {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* โปรไฟล์ header วางแนวตั้ง และกว้างเต็ม */
+  .profile-header {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* รูปโปรไฟล์ใหญ่ขึ้นแบบ responsive */
+  .profile-pic {
+    width: clamp(180px, 50vw, 240px);
+    height: clamp(180px, 50vw, 240px);
+    border: 6px solid #0096a3;
+  }
+
+  /* ชื่อใหญ่ขึ้น */
+  .profile-header h2 {
+    font-size: clamp(32px, 9vw, 44px);
+    text-align: center;
+  }
+
+  /* ข้อความรายละเอียดใหญ่อ่านง่าย */
+  .profile-info {
+    font-size: clamp(18px, 5vw, 22px);
+    padding: 20px;
+    line-height: 1.8;
+    text-align: center;
+  }
+}
+
+
+
+/* Tablet (481px – 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .profile-header { flex-direction: column; gap: 25px; }
+  .card-wrapper { width: 90%; max-width: 650px; }
+  .profile-pic { width: clamp(140px, 30vw, 200px); height: clamp(140px, 30vw, 200px); }
+  .profile-header h2 { font-size: clamp(28px, 7vw, 36px); }
+}
+
+/* Laptop / Desktop (≥1025px) */
+@media (min-width: 1025px) {
+  .card-wrapper { max-width: 750px; }
+  .profile-pic { width: 160px; height: 160px; }
+}
