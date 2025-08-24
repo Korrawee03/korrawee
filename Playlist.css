@@ -191,6 +191,16 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
 }
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(24px, 4vw, 32px);
+  color: #1e90ff;
+  margin: 25px 0 15px;
+  text-shadow: 0 2px 6px rgba(30,144,255,0.5);
+  animation: titleBounce 2s ease-in-out infinite,
+             titleGlow 3s ease-in-out infinite alternate;
+}
 
 .song-list li:hover {
   transform: translateY(-4px) rotateX(2deg) rotateY(2deg);
