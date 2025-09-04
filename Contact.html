@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+  <!-- ปุ่มขีด 3 ขีด -->
+  <div class="menu-btn" id="menuBtn">&#9776;</div>
+
+  <!-- เมนู dropdown -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="Home.html">Home</a>
+    <a href="Love.html">Personal  Preference</a>
+    <a href="Playlist.html">Playlist</a>
+    <a href="School.html">Education</a>
+    <a href="Profile.html">Profile</a>
+  </div>
+
+  <div class="container">
+    <div class="left">
+      <h1>Contact us</h1>
+    </div>
+    <div class="right">
+      <!-- Line -->
+      <a href="https://line.me/ti/p/FURmKPD9hR" target="_blank" class="contact-item line">
+        <img src="A4.png" alt="Line">
+        <div>
+          <h2>Line</h2>
+          <p>MÄDSËÊ</p>
+        </div>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/18uh9DgYak/?mibextid=wwXIfr" target="_blank" class="contact-item">
+        <img src="A2.png" alt="Facebook">
+        <div>
+          <h2>Facebook</h2>
+          <p>Madsee malilor</p>
+        </div>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/madsee_eeeeee" target="_blank" class="contact-item">
+        <img src="A3.png" alt="Instagram">
+        <div>
+          <h2>Instagram</h2>
+          <p>Madsee_eeeeee</p>
+        </div>
+      </a>
+      <!-- Gmail -->
+      <a href="mailto:Korweemailioh@gmail.com" class="contact-item">
+        <img src="A1.png" alt="Gmail">
+        <div>
+          <h2>Gmail</h2>
+          <p>Korweemailioh@gmail.com</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    // เปิด/ปิดเมนูเมื่อกดปุ่ม
+    menuBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("active");
+    });
+
+    // ปิดเมนูเมื่อคลิกนอกเมนู
+    document.addEventListener("click", (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>

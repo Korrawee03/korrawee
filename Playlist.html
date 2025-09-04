@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music App</title>
+  <link rel="stylesheet" href="Playlist.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+     
+  <!-- ปุ่มขีด 3 ขีด -->
+  <div class="menu-btn" id="menuBtn">&#9776;</div>
+
+  <!-- เมนู dropdown -->
+   <div class="dropdown-menu" id="dropdownMenu">
+    <a href="Home.html">Home</a>
+    <a href="Love.html">Personal  Preference</a>
+    <a href="School.html">School</a>
+    <a href="Profile.html">Profile</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    // เปิด/ปิดเมนูเมื่อกดปุ่ม
+    menuBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("active");
+    });
+
+    // ปิดเมนูเมื่อคลิกนอกเมนู
+    document.addEventListener("click", (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove("active");
+      }
+    });
+  </script>
+  </div>
+  <!-- Playlist Title -->
+<h1 class="playlist-title">My Playlists</h2>
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active">ทั้งหมด</button>
+    <button class="tab">เพลง</button>
+    <button class="tab">พอดแคสต์</button>
+  </div>
+
+<!-- Artists -->
+<section>
+  <div class="artist-list">
+    <div class="artist-card">
+      <img src="P1.jpg" alt="sad" />
+      <span>Favourite  song</span>
+    </div>
+    <div class="artist-card">
+      <img src="P3.jpg" alt="bodyslam" />
+      <span>บอดี้สแลม</span>
+    </div>
+    <div class="artist-card">
+      <img src="P2.jpg" alt="PUN" />
+      <span>PUN</span>
+    </div>
+    <div class="artist-card">
+      <img src="P4.jpg" alt=" โมเดิร์นด็อก " />
+      <span>โมเดิร์นด็อก</span>
+    </div>
+  </div>
+</section>
+
+  <!-- Songs -->
+  <section>
+    <h2>เพลงที่คุณฟังบ่อยช่วงนี้</h2>
+    <ul class="song-list">
+      <li>
+      <a href="https://youtu.be/hZv4LoveCuo?si=9OMM21-_kN2Uuf26" target="_blank">
+        <img src="P5.jpg" alt="Sweet Mullet">
+        <div class="info">
+          <span>ความสดใสในวัยเยาาว์</span>
+          <small>วง สวัสดี</small>
+        </div>
+        <span class="check">✔</span>
+      </a>
+      </li>
+      <li>
+        <a href="https://youtu.be/b0OwtRNsOJY?si=XzxVdwJTogqkDf8x" target="_blank">
+        <img src="P6.jpg" alt="Clash">
+        <div class="info">
+          <span>ความทรงจำที่ไม่อยากจำ  </span>
+          <small>Getsunova</small>
+        </div>
+        <span class="check">✔</span>
+        </a>
+      </li>
+      <li>
+  <a href="https://youtu.be/dNeKEZn3RgI?si=Al7o_6bThU6WihjT" target="_blank">
+    <img src="P7.jpg" alt="Bodyslam">
+    <div class="info">
+      <span>ฝากให้เขารัก</span>
+      <small>Yes'sir Days</small>
+    </div>
+    <span class="check">✔</span>
+  </a>
+</li>
+    </ul>
+  </section>
+
+  <!-- Albums -->
+  <section>
+    <h2>อัลบั้มที่มีเพลงที่คุณชื่นชอบ</h2>
+    <div class="album-grid">
+      <div class="album">
+        <img src="P8.jpg" alt="T!NE">
+      </div>
+      <div class="album">
+        <img src="P9.jpg" alt="ค็อกเทล">
+      </div>
+      <div class="album">
+        <img src="P10.jpg" alt="พาราด็อก">
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* ========================== FADE-IN PAGE ========================== */
+
+/* ========================== FADE-IN + 3D EFFECT ========================== */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: perspective(1000px) rotateY(0deg) scale(1);
+  animation: fadeInPage 1s forwards;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* fade-in page */
+@keyframes fadeInPage {
+  0% { opacity: 0; transform: perspective(1000px) rotateY(30deg) scale(0.9); }
+  100% { opacity: 1; transform: perspective(1000px) rotateY(0deg) scale(1); }
+}
+
+/* fade-out + 3D class */
+.fade-out {
+  opacity: 0 !important;
+  transform: perspective(1000px) rotateY(90deg) scale(0.7);
+}
+
+/* logo & other animations remain the same */
+
+/* ========================== LOGO ========================== */
+.logo {
+  position: relative;
+  width: clamp(150px, 30vw, 300px);
+  height: clamp(150px, 30vw, 300px);
+}
+
+.circle-shadow {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, #00d4ff 0%, #006f7a 100%);
+  border-radius: 50%;
+  left: -12%;
+  top: 0;
+  z-index: 1;
+  animation: pulseShadow 2s ease-in-out infinite alternate;
+}
+
+.circle-main {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatCircle 3s ease-in-out infinite alternate;
+}
+
+.letter-c {
+  font-size: clamp(150px, 20vw, 270px);
+  font-weight: bold;
+  color: #0096a3;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  animation: textBounce 2s ease-in-out infinite;
+}
+
+/* hover effect เพิ่มลูกเล่น glow */
+.letter-c:hover {
+  transform: scale(1.2) rotate(-5deg);
+  color: #00d4ff;
+  text-shadow: 0 0 15px #00d4ff, 0 0 25px rgba(0,212,255,0.6);
+}
+
+/* click effect */
+.letter-c:active {
+  transform: scale(0.9) rotate(5deg);
+  color: #006f7a;
+  text-shadow: none;
+}
+
+/* ========================== ANIMATIONS ========================== */
+@keyframes fadeInPage {
+  to { opacity: 1; }
+}
+
+@keyframes pulseShadow {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes floatCircle {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes textBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(-10px); }
+  75% { transform: translateY(-5px); }
+}
+
+/* ========================== FADE-OUT CLASS ========================== */
+.fade-out {
+  opacity: 0 !important;
+}

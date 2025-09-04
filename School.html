@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education History</title>
+  <link rel="stylesheet" href="School.css">
+</head>
+<body>
+
+  <!-- ปุ่มขีด 3 ขีด -->
+  <div class="menu-btn" id="menuBtn">&#9776;</div>
+
+  <!-- เมนู dropdown -->
+ <div class="dropdown-menu" id="dropdownMenu">
+    <a href="Home.html">Home</a>
+    <a href="Love.html">Personal  Preference</a>
+    <a href="Playlist.html">Playlist</a>
+    <a href="Profile.html">Profile</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <div class="container">
+    <h1 class="main-title">Education History</h1>
+
+    <div class="education">
+      <a href="https://www.facebook.com/samorsae/?locale=th_TH" target="_blank">
+        <div class="edu-item">
+          <img src="S 1.png" alt="โรงเรียนสุเหร่าสมอเซ">
+          <p>อ.1 - ประถมศึกษาปีที่ 6<br>โรงเรียนสุเหร่าสมอเซ</p>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/share/1AxLXsgfFT/?mibextid=wwXIfr" target="_blank">
+        <div class="edu-item">
+          <img src="S 2.png" alt="โรงเรียนท่าอิฐศึกษา">
+          <p>มัธยมต้น<br>โรงเรียนท่าอิฐศึกษา</p>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/share/17PCFf4LSk/?mibextid=wwXIfr" target="_blank">
+        <div class="edu-item">
+          <img src="S 3.png" alt="โรงเรียนหมอนทองวิทยา">
+          <p>มัธยมปลาย<br>โรงเรียนหมอนทองวิทยา</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // เปิด/ปิดเมนูเมื่อกดปุ่ม
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    menuBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("active");
+    });
+
+    // ปิดเมนูเมื่อคลิกนอกเมนู
+    document.addEventListener("click", (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

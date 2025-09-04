@@ -1,0 +1,271 @@
+/* Reset */
+/* Reset */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Georgia", serif; /* ✅ ฟอนต์เดียวกับหน้า Contact */
+}
+
+body {
+  background: linear-gradient(120deg, #e6f7ff, #d0f0ff);
+  padding: 15px;
+  perspective: 1200px;
+  animation: fadeInBody 1s ease forwards;
+  font-family: "Kanit", sans-serif; /* ✅ ฟอนต์เดียวกัน */
+}
+
+@keyframes fadeInBody {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================== HAMBURGER BUTTON ========================== */
+.menu-btn {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  font-size: clamp(30px, 4vw, 40px);
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.menu-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: #0b2eca;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(2% + 40px);
+  left: 2%;
+  background: #5aa7f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 1500;
+  width: max-content;
+}
+
+.dropdown-menu.active { transform: scaleY(1); }
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: clamp(14px, 2vw, 16px);
+  transition: background 0.3s, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+/* ========================== TITLE ========================== */
+.playlist-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(30px, 5vw, 40px);
+  color: #1e90ff;
+  margin-top: clamp(30px, 5vw, 60px);
+  margin-bottom: 15px;
+  text-shadow: 0 2px 6px rgba(30,144,255,0.5);
+  animation: titleBounce 2s ease-in-out infinite,
+             titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleBounce {
+  0%,100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(-10px); }
+  75% { transform: translateY(-5px); }
+}
+
+@keyframes titleGlow {
+  0%,100% { text-shadow: 0 2px 6px rgba(30,144,255,0.5), 0 0 5px rgba(0,191,255,0.3); }
+  50% { text-shadow: 0 2px 12px rgba(30,144,255,0.8), 0 0 10px rgba(0,191,255,0.6); }
+}
+
+/* ========================== TABS ========================== */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.tab {
+  padding: clamp(10px, 2vw, 18px) clamp(20px, 4vw, 30px);
+  border-radius: 25px;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-size: clamp(14px, 2.2vw, 18px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform-style: preserve-3d;
+}
+
+.tab:hover {
+  background: linear-gradient(135deg, #1e90ff, #00bfff);
+  transform: translateY(-5px) rotateX(2deg) rotateY(2deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35), 0 0 20px rgba(0,191,255,0.4) inset;
+}
+
+.tab:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* ========================== ARTISTS ========================== */
+.artist-list {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.artist-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #333;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  gap: 10px;
+  width: 220px;
+  height: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.artist-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.artist-card span {
+  color: #fff;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35), 0 0 15px rgba(0,191,255,0.5) inset;
+}
+
+.artist-card:hover span {
+  text-shadow: 0 0 6px rgba(0,191,255,0.8);
+}
+
+/* ========================== SONG LIST ========================== */
+.song-list li {
+  list-style: none; /* ลบจุด bullet */
+}
+
+/* ทำให้ลิงก์เต็มพื้นที่การ์ด */
+.song-list li a {
+  display: flex;
+  align-items: center;
+  background: #111;
+  color: #fff; /* ✅ ตัวอักษรสีขาว */
+  padding: clamp(10px, 2vw, 14px);
+  border-radius: 8px;
+  margin: clamp(10px, 2vw, 14px) auto;
+  font-size: clamp(14px, 2vw, 16px);
+  gap: clamp(10px, 2vw, 16px);
+  width: 90%;
+  max-width: 600px;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  cursor: pointer;
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+.song-list li a:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35), 
+              0 0 15px rgba(30,144,255,0.5) inset;
+}
+.song-list li a:hover {
+  border: 2px solid #1e90ff;
+  box-shadow: 0 0 15px #1e90ff;
+}
+
+/* รูปภาพเพลง */
+.song-list img {
+  width: clamp(50px, 10vw, 60px);
+  height: clamp(50px, 10vw, 60px);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ข้อมูลเพลง */
+.song-list .info {
+  flex: 1;
+  color: #fff; /* ✅ ตัวอักษรใน .info เป็นสีขาว */
+}
+
+/* รายละเอียดเล็ก */
+.song-list small {
+  display: block;
+  font-size: clamp(12px, 1.5vw, 14px);
+  color: #fff; /* ✅ small ก็เป็นสีขาว */
+}
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(24px, 4vw, 32px);
+  color: #1e90ff;
+  margin: 25px 0 15px;
+  text-shadow: 0 2px 6px rgba(30,144,255,0.5);
+  animation: titleBounce 2s ease-in-out infinite,
+             titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* ========================== ALBUM GRID ========================== */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album img:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35), 0 0 15px rgba(30,144,255,0.5) inset;
+}
+
+/* Checkmark */
+.check {
+  color: #1db954;
+  margin-left: 8px;
+}

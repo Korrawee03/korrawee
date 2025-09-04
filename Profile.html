@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Responsive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Profire.css">
+</head>
+<body>
+  
+  <!-- ปุ่มขีด 3 ขีด -->
+  <div class="menu-btn" id="menuBtn">&#9776;</div>
+
+  <!-- เมนู dropdown -->
+   <div class="dropdown-menu" id="dropdownMenu">
+    <a href="Home.html">Home</a>
+    <a href="Love.html">Personal  Preference</a>
+    <a href="Playlist.html">Playlist</a>
+    <a href="School.html">Education  History</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    // เปิด/ปิดเมนูเมื่อกดปุ่ม
+    menuBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("active");
+    });
+
+    // ปิดเมนูเมื่อคลิกนอกเมนู
+    document.addEventListener("click", (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove("active");
+      }
+    });
+  </script>
+ 
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="stars"><span class="star">⭐</span></div>
+    <h1>Profile</h1>
+    <div class="stars"><span class="star">⭐</span></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- PROFILE + DOTS -->
+    <div class="profile-pic-wrapper">
+      <div class="profile-pic">
+        <img src="Pr1.jpg" alt="Profile Picture">
+      </div>
+      <div class="dots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- INFO BOX -->
+    <div class="info-box">
+      <p><span class="title">ชื่อ :</span> นางสาวกรรวี มะลิเลาะ</p>
+      <p><span class="title">ชื่อเล่น :</span> มัดซี</p>
+      <p><span class="title">วัน/เดือน/ปีเกิด :</span> 3 มิถุนายน 2550</p>
+      <p><span class="title">เชื้อชาติ :</span> ไทย</p>
+      <p><span class="title">สัญชาติ :</span> ไทย</p>
+      <p><span class="title">ศาสนา :</span> อิสลาม</p>
+      <p><span class="title">โรงเรียน :</span> หมอนทองวิทยา</p>
+      <p><span class="title">แผนการเรียน :</span> คอมพิวเตอร์ธุรกิจ</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
